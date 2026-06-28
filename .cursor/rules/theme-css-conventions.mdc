@@ -1,0 +1,36 @@
+---
+description: Conventions for defining and extending theme variables in theme.css using Tailwind v4 @theme
+globs: src/app/theme.css
+alwaysApply: false
+---
+
+# Tailwind v4 `@theme` Conventions
+
+## CSS Custom Property Naming
+
+All theme tokens live in `src/app/theme.css` inside the `@theme {}` block.
+
+### Text preset sub-properties
+
+Use **double-dash** (`--`) to separate the base token name from its modifier. This is required for Tailwind v4 to recognise them as sub-values of the utility.
+
+```css
+/* ❌ BAD — single dash; Tailwind ignores these as sub-properties */
+--text-preset-1-line-height: 1.4;
+--text-preset-1-letter-spacing: -0.125rem;
+--text-preset-1-weight: 700;
+
+/* ✅ GOOD — double dash separator */
+--text-preset-1: 3.25rem;
+--text-preset-1--line-height: 1.4;
+--text-preset-1--letter-spacing: -0.125rem;
+--text-preset-1--font-weight: 700;
+```
+
+### Modifier names
+
+| Property      | Correct modifier      |
+|---------------|-----------------------|
+| line-height   | `--line-height`       |
+| letter-spacing| `--letter-spacing`    |
+| font-weight   | `--font-weight`  ⚠️ NOT `--weight` |
