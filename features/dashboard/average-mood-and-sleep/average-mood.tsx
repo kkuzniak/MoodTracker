@@ -1,8 +1,15 @@
-import { ArrowRightIcon } from '@/shared/components/icons/arrow-right-icon';
-import { VerySad } from '@/shared/components/shapes/small-emoji-feelings/very-sad';
+import { COLOR_BY_MOOD, TITLE_BY_MOOD } from '../constants';
+import { MoodEmoji } from '../mood-emoji';
+import type { Mood, Trend } from '../types';
 import { PatternWrapper } from './pattern-wrapper';
+import { TrendIndicator } from './trend-indicator';
 
-const AverageMood = () => {
+type Props = {
+  mood: Mood;
+  trend: Trend;
+};
+
+const AverageMood = ({ mood, trend }: Props) => {
   return (
     <div>
       <header className="mb-3">
@@ -13,15 +20,15 @@ const AverageMood = () => {
           </span>
         </p>
       </header>
-      <PatternWrapper className="bg-red-300 text-neutral-900 py-10.5">
+      <PatternWrapper
+        className="text-neutral-900"
+        style={{ backgroundColor: COLOR_BY_MOOD[mood] }}
+      >
         <header className="flex flex-row items-center gap-x-4 mb-3">
-          <VerySad className="size-6" />
-          <p className="text-preset-4">Very Sad</p>
+          <MoodEmoji mood={mood} className="size-6" />
+          <p className="text-preset-4">{TITLE_BY_MOOD[mood]}</p>
         </header>
-        <p className="opacity-70 text-preset-7 flex flex-row gap-x-2">
-          <ArrowRightIcon />
-          <span>Same as the previous 5 check-ins</span>
-        </p>
+        <TrendIndicator trend={trend} />
       </PatternWrapper>
     </div>
   );

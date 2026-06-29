@@ -8,12 +8,12 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { MOOD_AND_SLEEP_TRENDS_DATA } from '../data';
+import { MOOD_AND_SLEEP_TRENDS_DATA } from '@/src/app/data';
 import { CustomBar } from './custom-bar';
 import { XAxisTick } from './x-axis-tick';
 import { Y_AXIS_WIDTH, YAxisTick } from './y-axis-tick';
 
-const MIN_BAR_SLOT = 60;
+const MIN_BAR_SLOT = 57.5;
 const X_AXIS_RECHARTS_HEIGHT = 50;
 const CHART_DOMAIN: [number, number] = [0, 5];
 const CHART_TICKS = [1, 2, 3, 4, 5];

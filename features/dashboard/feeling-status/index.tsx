@@ -1,5 +1,7 @@
 import { ElementWrapper } from '@/shared/components/dashboard/element-wrapper';
 import { QuoteIcon } from '@/shared/components/icons/quote-icon';
+import { cn } from '@/utils/cn';
+import { TITLE_BY_MOOD } from '../constants';
 import { Mood } from '../types';
 import { FeelingShape } from './feeling-shape';
 
@@ -11,38 +13,34 @@ const QUOTE_BY_TYPE: Record<Mood, string> = {
   'very-sad': 'You are stronger than you think; the storm will pass.',
 };
 
-const TITLE_BY_TYPE: Record<Mood, string> = {
-  'very-happy': 'Very Happy',
-  happy: 'Happy',
-  neutral: 'Neutral',
-  sad: 'Sad',
-  'very-sad': 'Very Sad',
-};
-
 type Props = {
   type: Mood;
 };
 
 const FeelingStatus = ({ type }: Props) => {
   return (
-    <ElementWrapper className="flex flex-col items-center gap-x-8 px-4 py-8 md:flex-row md:pb-0 md:pr-10 md:pl-8">
-      <div className="min-w-61.5 w-full pb-8">
-        <header className="text-neutral-900 mb-25">
-          <h2 className="text-preset-3 opacity-70 text-center md:text-left">
-            I&apos;m feeling
-          </h2>
-          <h1 className="text-preset-2 text-center md:text-left">
-            {TITLE_BY_TYPE[type]}
-          </h1>
-        </header>
-        <div className="flex flex-col gap-y-3">
-          <QuoteIcon />
-          <p className="text-preset-6-italic italic text-neutral-900">
-            &quot;{QUOTE_BY_TYPE[type]}&quot;
-          </p>
-        </div>
+    <ElementWrapper
+      className={cn(
+        'grid grid-cols-1 items-start justify-items-center grid-rows-auto gap-8 px-4 py-8',
+        'md:pb-0 md:pr-10 md:pl-8 md:grid-rows-[1fr_auto] md:grid-cols-[1fr_20rem] md:justify-items-start',
+        'lg:grid-cols-[15.375rem_1fr]',
+      )}
+    >
+      <header className="text-neutral-900 md:col-start-1 md:row-start-1">
+        <h2 className="text-preset-3 opacity-70 text-center md:text-left">
+          I&apos;m feeling
+        </h2>
+        <h1 className="text-preset-2 text-center md:text-left">
+          {TITLE_BY_MOOD[type]}
+        </h1>
+      </header>
+      <FeelingShape type={type} className="md:col-start-2 md:row-span-full" />
+      <div className="flex flex-col gap-4 items-center md:gap-3 md:items-start md:mb-8 md:col-start-1 md:row-start-2">
+        <QuoteIcon />
+        <p className="text-preset-6-italic italic text-neutral-900 text-center md:text-left">
+          &quot;{QUOTE_BY_TYPE[type]}&quot;
+        </p>
       </div>
-      <FeelingShape type={type} />
     </ElementWrapper>
   );
 };

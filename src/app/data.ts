@@ -54,4 +54,4 @@ export const MOOD_AND_SLEEP_TRENDS_DATA = [
     value: 3,
     mood: 'sad',
   },
-];
+] as const;

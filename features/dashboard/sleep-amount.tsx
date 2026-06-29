@@ -8,7 +8,7 @@ type Props = {
 
 const SleepAmount = ({ amount }: Props) => {
   return (
-    <ElementWrapper className="flex items-start p-5">
+    <ElementWrapper className="flex-col items-start p-5">
       <header className="flex flex-row items-center gap-x-3 mb-4 text-neutral-600">
         <ZzzIcon />
         <p className="text-preset-6">Sleep</p>

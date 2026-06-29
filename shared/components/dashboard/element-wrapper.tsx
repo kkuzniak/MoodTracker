@@ -9,7 +9,7 @@ const ElementWrapper = ({ children, className }: PropsWithChildren<Props>) => {
   return (
     <div
       className={cn(
-        'flex flex-col rounded-2xl bg-neutral-0 p-8 ring ring-blue-100',
+        'flex rounded-2xl bg-neutral-0 p-8 ring ring-blue-100',
         className,
       )}
     >

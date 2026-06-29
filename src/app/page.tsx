@@ -8,20 +8,25 @@ import type {
   Mood,
   ReflectionTag,
   SleepAmount as SleepAmountType,
+  Trend,
 } from '@/features/dashboard/types';
 import { Navbar } from '@/shared/components/layout/navbar';
 
 const DATA = {
   name: 'Kacper',
-  today: new Date(),
-  feeling: 'very-happy' as Mood,
+  todayDate: new Date(),
+  todaysMood: 'very-happy' as Mood,
   sleepAmount: '2-3' as SleepAmountType,
   reflection: 'Woke up early and finally tackled a big project!',
   reflectionTags: ['grateful', 'optimistic'] as ReflectionTag[],
+  averageMood: 'very-sad' as Mood,
+  averageMoodTrend: 'decrease' as Trend,
+  averageSleepAmount: '3-4' as SleepAmountType,
+  averageSleepTrend: 'decrease' as Trend,
 } as const;
 
 export default function Home() {
-  const todayText = format(DATA.today, 'EEEE, MMMM do, yyyy');
+  const todayText = format(DATA.todayDate, 'EEEE, MMMM do, yyyy');
 
   return (
     <div className="size-full max-w-292.5 mx-auto">
@@ -37,7 +42,7 @@ export default function Home() {
           <p className="text-preset-6 text-neutral-600">{todayText}</p>
         </header>
         <div className="w-full flex flex-col gap-5 mb-8 lg:flex-row lg:gap-8 lg:justify-between">
-          <FeelingStatus type={DATA.feeling} />
+          <FeelingStatus type={DATA.todaysMood} />
           <div className="flex flex-col gap-y-5 w-full">
             <SleepAmount amount={DATA.sleepAmount} />
             <ReflectionOfTheDay
@@ -46,8 +51,13 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="w-full flex flex-col gap-5 mb-10 lg:flex-row lg:gap-8 lg:justify-between">
-          <AverageMoodAndSleep />
+        <div className="w-full flex flex-col gap-8 mb-10 lg:flex-row lg:justify-between">
+          <AverageMoodAndSleep
+            mood={DATA.averageMood}
+            moodTrend={DATA.averageMoodTrend}
+            sleepAmount={DATA.averageSleepAmount}
+            sleepTrend={DATA.averageSleepTrend}
+          />
           <MoodAndSleepTrends />
         </div>
       </main>

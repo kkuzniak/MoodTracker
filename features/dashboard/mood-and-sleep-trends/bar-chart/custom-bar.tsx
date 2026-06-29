@@ -1,28 +1,8 @@
-import { Happy } from '@/shared/components/shapes/small-emoji-feelings/happy';
-import { Neutral } from '@/shared/components/shapes/small-emoji-feelings/neutral';
-import { Sad } from '@/shared/components/shapes/small-emoji-feelings/sad';
-import { VeryHappy } from '@/shared/components/shapes/small-emoji-feelings/very-happy';
-import { VerySad } from '@/shared/components/shapes/small-emoji-feelings/very-sad';
-import { StyledElement } from '@/shared/types';
-import { Mood } from '../../types';
+import { COLOR_BY_MOOD } from '../../constants';
+import { MoodEmoji } from '../../mood-emoji';
+import type { Mood } from '../../types';
 
 const EMOJI_SIZE = 30;
-
-const MOOD_COLOR: Record<Mood, string> = {
-  'very-sad': 'var(--color-red-300)',
-  sad: 'var(--color-indigo-200)',
-  neutral: 'var(--color-blue-300)',
-  happy: 'var(--color-green-300)',
-  'very-happy': 'var(--color-amber-300)',
-};
-
-const MOOD_EMOJI: Record<Mood, React.ComponentType<StyledElement>> = {
-  'very-sad': VerySad,
-  sad: Sad,
-  neutral: Neutral,
-  happy: Happy,
-  'very-happy': VeryHappy,
-};
 
 type Props = {
   x?: number;
@@ -37,8 +17,7 @@ const CustomBar = ({ x = 0, y = 0, width = 0, height = 0, mood }: Props) => {
     return null;
   }
 
-  const fill = MOOD_COLOR[mood as Mood];
-  const EmojiComponent = mood ? MOOD_EMOJI[mood as Mood] : null;
+  const fill = COLOR_BY_MOOD[mood as Mood];
 
   return (
     <g>
@@ -50,14 +29,14 @@ const CustomBar = ({ x = 0, y = 0, width = 0, height = 0, mood }: Props) => {
         rx={width / 2}
         fill={fill}
       />
-      {EmojiComponent ? (
+      {mood ? (
         <foreignObject
           x={x + (width - EMOJI_SIZE) / 2}
           y={y + 5}
           width={EMOJI_SIZE}
           height={EMOJI_SIZE}
         >
-          <EmojiComponent className="size-full" />
+          <MoodEmoji mood={mood as Mood} className="size-full" />
         </foreignObject>
       ) : null}
     </g>

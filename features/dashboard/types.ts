@@ -23,3 +23,5 @@ export type ReflectionTag =
   | 'disappointed'
   | 'optimistic'
   | 'restless';
+
+export type Trend = 'increase' | 'decrease' | 'same';
