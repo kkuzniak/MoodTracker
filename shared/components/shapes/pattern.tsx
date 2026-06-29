@@ -10,7 +10,7 @@ const Pattern = ({ className }: StyledElement) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <g clip-path="url(#clip0_432_5641)">
+      <g clipPath="url(#clip0_432_5641)">
         <circle opacity="0.2" cx="110.5" cy="73.5" r="110.5" fill="white" />
         <circle opacity="0.2" cx="132.5" cy="103.5" r="110.5" fill="white" />
       </g>

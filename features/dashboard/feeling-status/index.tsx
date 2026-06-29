@@ -1,15 +1,9 @@
 import { ElementWrapper } from '@/shared/components/dashboard/element-wrapper';
 import { QuoteIcon } from '@/shared/components/icons/quote-icon';
+import { Mood } from '../types';
 import { FeelingShape } from './feeling-shape';
 
-export type FeelingType =
-  | 'very-happy'
-  | 'happy'
-  | 'neutral'
-  | 'sad'
-  | 'very-sad';
-
-const QUOTE_BY_TYPE: Record<FeelingType, string> = {
+const QUOTE_BY_TYPE: Record<Mood, string> = {
   'very-happy': 'When your heart is full, share your light with the world.',
   happy: "Happiness grows when it's shared with others.",
   neutral: 'A calm mind can find opportunity in every moment.',
@@ -17,7 +11,7 @@ const QUOTE_BY_TYPE: Record<FeelingType, string> = {
   'very-sad': 'You are stronger than you think; the storm will pass.',
 };
 
-const TITLE_BY_TYPE: Record<FeelingType, string> = {
+const TITLE_BY_TYPE: Record<Mood, string> = {
   'very-happy': 'Very Happy',
   happy: 'Happy',
   neutral: 'Neutral',
@@ -26,7 +20,7 @@ const TITLE_BY_TYPE: Record<FeelingType, string> = {
 };
 
 type Props = {
-  type: FeelingType;
+  type: Mood;
 };
 
 const FeelingStatus = ({ type }: Props) => {

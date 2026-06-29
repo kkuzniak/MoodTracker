@@ -6,3 +6,14 @@ body {
   color: var(--colors-neutral-900);
   font-family: var(--font-sans);
 }
+
+/* disabled focus styles for recharts */
+.recharts-wrapper:focus,
+.recharts-wrapper *:focus {
+  outline: none;
+}
+
+.recharts-wrapper:focus-visible,
+.recharts-wrapper *:focus-visible {
+  outline: revert;
+}

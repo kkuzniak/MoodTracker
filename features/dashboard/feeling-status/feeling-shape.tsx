@@ -3,14 +3,15 @@ import { Neutral } from '@/shared/components/shapes/feelings/neutral';
 import { Sad } from '@/shared/components/shapes/feelings/sad';
 import { VeryHappy } from '@/shared/components/shapes/feelings/very-happy';
 import { VerySad } from '@/shared/components/shapes/feelings/very-sad';
-import type { FeelingType } from '.';
+import type { StyledElement } from '@/shared/types';
+import type { Mood } from '../types';
 
 type Props = {
-  type: FeelingType;
+  type: Mood;
 };
 
 const FeelingShape = ({ type }: Props) => {
-  const Shape = {
+  const MOOD_SHAPE: Record<Mood, React.ComponentType<StyledElement>> = {
     'very-happy': VeryHappy,
     happy: Happy,
     neutral: Neutral,
@@ -18,7 +19,7 @@ const FeelingShape = ({ type }: Props) => {
     'very-sad': VerySad,
   };
 
-  const ShapeComponent = Shape[type];
+  const ShapeComponent = MOOD_SHAPE[type];
 
   return (
     <div className="flex min-w-80 w-80 h-72.5 mt-4.5 relative overflow-hidden">
