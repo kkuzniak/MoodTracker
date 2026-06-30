@@ -45,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${redditSans.variable} antialiased`}>
-      <body className="w-full px-4 pt-8 min-h-dvh bg-gradient-to-b from-[#F5F5FF] to-[#E0E0FF] md:pt-10 md:px-8 lg:px-33.75">
+      <body className="w-full min-h-dvh bg-gradient-to-b from-[#F5F5FF] to-[#E0E0FF]">
         {children}
       </body>
     </html>

@@ -2,6 +2,10 @@
 
 @import "./theme.css";
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   color: var(--colors-neutral-900);
   font-family: var(--font-sans);

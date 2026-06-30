@@ -1,0 +1,29 @@
+---
+description: Enforce global path alias imports for shared components instead of relative paths
+globs: **/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Shared Component Imports
+
+Always use the `@/shared/components` path alias when importing shared components. Never use relative paths that traverse into the `shared/` directory.
+
+```typescript
+// ❌ BAD
+import { Button } from '../../shared/components/button';
+import { Navbar } from '../../../shared/components/layout/navbar';
+
+// ✅ GOOD
+import { Button } from '@/shared/components/button';
+import { Navbar } from '@/shared/components/layout/navbar';
+```
+
+This applies to all imports from the `shared/` directory, not just components:
+
+```typescript
+// ❌ BAD
+import { formatDate } from '../../../shared/utils/date';
+
+// ✅ GOOD
+import { formatDate } from '@/shared/utils/date';
+```
