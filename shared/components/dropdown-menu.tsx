@@ -7,6 +7,7 @@ type Props = PropsWithChildren & {
   sideOffset?: number;
   side?: 'top' | 'right' | 'bottom' | 'left';
   alignOffset?: number;
+  triggerClassName?: string;
 };
 
 const DropdownMenu = ({
@@ -16,10 +17,11 @@ const DropdownMenu = ({
   sideOffset = 8,
   side = 'bottom',
   alignOffset = 0,
+  triggerClassName,
 }: Props) => {
   return (
     <DropdownMenuPrimitive.Root>
-      <DropdownMenuPrimitive.Trigger asChild>
+      <DropdownMenuPrimitive.Trigger asChild className={triggerClassName}>
         {children}
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Portal>

@@ -9,6 +9,7 @@ const Menu = ({ fullName, email }: Props) => {
       content={<Content fullName={fullName} email={email} />}
       align="end"
       sideOffset={0}
+      triggerClassName="data-[state=open]:[&>svg]:rotate-180"
     >
       <div className="flex items-center gap-x-2.5">
         <Image src="/images/avatar.png" alt="avatar" width={40} height={40} />
