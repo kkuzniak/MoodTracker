@@ -1,6 +1,5 @@
 import { ElementWrapper } from '@/shared/components/dashboard/element-wrapper';
 import { StarsIcon } from '@/shared/components/icons/stars-icon';
-import { capitalize } from '@/utils/text';
 import type { ReflectionTag } from './types';
 
 type Props = {
@@ -17,8 +16,10 @@ const ReflectionOfTheDay = ({ reflection, tags }: Props) => {
       </header>
       <p className="text-preset-6 text-neutral-900">{reflection}</p>
       <p className="flex flex-row gap-x-3 text-preset-6-italic italic text-neutral-600 mt-auto">
-        {tags.map(tag => (
-          <span key={tag}>#{capitalize(tag)}</span>
+        {tags.map((tag: ReflectionTag) => (
+          <span key={tag} className="capitalize">
+            #{tag}
+          </span>
         ))}
       </p>
     </ElementWrapper>

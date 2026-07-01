@@ -1,12 +1,13 @@
 'use client';
 
 import { PropsWithChildren } from 'react';
+import { cn } from '@/utils/cn';
 import { StyledElement } from '../types';
 
 type Props = StyledElement &
   PropsWithChildren<{
+    onClick: () => void;
     disabled?: boolean;
-    onClick?: () => void;
   }>;
 
 const Button = ({ children, disabled, onClick, className }: Props) => {
@@ -15,7 +16,7 @@ const Button = ({ children, disabled, onClick, className }: Props) => {
       onClick={onClick}
       disabled={disabled}
       type="button"
-      className={className}
+      className={cn('cursor-pointer', className)}
     >
       {children}
     </button>

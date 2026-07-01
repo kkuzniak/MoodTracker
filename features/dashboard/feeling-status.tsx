@@ -1,9 +1,9 @@
 import { ElementWrapper } from '@/shared/components/dashboard/element-wrapper';
 import { QuoteIcon } from '@/shared/components/icons/quote-icon';
 import { cn } from '@/utils/cn';
-import { TITLE_BY_MOOD } from '../constants';
-import { Mood } from '../types';
-import { FeelingShape } from './feeling-shape';
+import { TITLE_BY_MOOD } from './constants';
+import { MoodShape } from './mood-shape';
+import { Mood } from './types';
 
 const QUOTE_BY_TYPE: Record<Mood, string> = {
   'very-happy': 'When your heart is full, share your light with the world.',
@@ -34,7 +34,12 @@ const FeelingStatus = ({ type }: Props) => {
           {TITLE_BY_MOOD[type]}
         </h1>
       </header>
-      <FeelingShape type={type} className="md:col-start-2 md:row-span-full" />
+      <div className="flex size-50 relative md:min-w-80 md:w-80 md:h-72.5 md:mt-4.5 md:overflow-hidden md:col-start-2 md:row-span-full">
+        <MoodShape
+          type={type}
+          className="absolute w-full h-auto top-0 left-0"
+        />
+      </div>
       <div className="flex flex-col gap-4 items-center md:gap-3 md:items-start md:mb-8 md:col-start-1 md:row-start-2">
         <QuoteIcon />
         <p className="text-preset-6-italic italic text-neutral-900 text-center md:text-left">
