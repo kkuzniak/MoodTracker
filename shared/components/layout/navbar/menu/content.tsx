@@ -15,8 +15,16 @@ const Content = ({ fullName, email }: Props) => {
         <p className="text-preset-7 text-neutral-300">{email}</p>
       </div>
       <hr className="w-full text-blue-100" />
-      <Button icon={<CogIcon />} title="Settings" />
-      <Button icon={<LogoutIcon />} title="Logout" />
+      <Button
+        icon={<CogIcon />}
+        title="Settings"
+        onClick={() => console.log('Settings')}
+      />
+      <Button
+        icon={<LogoutIcon />}
+        title="Logout"
+        onClick={() => console.log('Logout')}
+      />
     </div>
   );
 };

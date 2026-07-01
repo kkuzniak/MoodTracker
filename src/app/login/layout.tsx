@@ -1,6 +1,6 @@
-import AuthLayout from '@/shared/layouts/auth-layout';
 import { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
+import AuthLayout from '@/shared/layouts/auth-layout';
 
 export const metadata: Metadata = {
   title: 'Mood Tracker | Login',
