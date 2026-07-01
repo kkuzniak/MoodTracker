@@ -1,3 +1,5 @@
+'use client';
+
 import { CogIcon } from '@/shared/components/icons/cog-icon';
 import { LogoutIcon } from '@/shared/components/icons/logout-icon';
 import { Button } from './button';
