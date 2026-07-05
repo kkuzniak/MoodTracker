@@ -2,7 +2,7 @@
 
 import { Dialog as DialogPrimitive } from 'radix-ui';
 import { useState } from 'react';
-import { Button } from '@/shared/components/button';
+import { BlueButton } from '@/shared/components/blue-button';
 import { CloseIcon } from '@/shared/components/icons/close-icon';
 import { cn } from '@/utils/cn';
 import { Content } from './content';
@@ -19,19 +19,16 @@ const LogMoodModal = () => {
       )}
     >
       <DialogPrimitive.Close asChild>
-        <div className="absolute top-3.75 right-3.75 size-7 flex items-center justify-center">
+        <div className="absolute top-3.75 right-3.75 size-7 flex items-center justify-center cursor-pointer">
           <CloseIcon className="size-1/2" />
         </div>
       </DialogPrimitive.Close>
       <h1 className="text-preset-2-mobile md:text-preset-2">Log your mood</h1>
       <ProgressBar progress={step} total={4} />
       <Content step={step} />
-      <Button
-        className="py-4 bg-blue-600 text-preset-4 text-neutral-0 rounded-[10px]"
-        onClick={() => setStep(step + 1)}
-      >
+      <BlueButton className="text-preset-4" onClick={() => setStep(step + 1)}>
         Continue
-      </Button>
+      </BlueButton>
     </div>
   );
 };

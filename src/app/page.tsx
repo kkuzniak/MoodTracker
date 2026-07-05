@@ -22,13 +22,13 @@ type TodaysData = {
 
 const DATA = {
   name: 'Kacper',
-  // today: {
-  //   mood: 'very-happy' as Mood,
-  //   sleepAmount: '2-3' as SleepAmountType,
-  //   reflection: 'Woke up early and finally tackled a big project!',
-  //   reflectionTags: ['grateful', 'optimistic'] as ReflectionTag[],
-  // },
-  today: null as TodaysData | null,
+  today: {
+    mood: 'very-happy' as Mood,
+    sleepAmount: '2-3' as SleepAmountType,
+    reflection: 'Woke up early and finally tackled a big project!',
+    reflectionTags: ['grateful', 'optimistic'] as ReflectionTag[],
+  },
+  // today: null as TodaysData | null,
   averageMood: 'very-sad' as Mood,
   averageMoodTrend: 'decrease' as Trend,
   averageSleepAmount: '3-4' as SleepAmountType,

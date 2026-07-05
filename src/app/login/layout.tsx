@@ -8,5 +8,12 @@ export const metadata: Metadata = {
 };
 
 export default function LoginLayout({ children }: PropsWithChildren) {
-  return <AuthLayout>{children}</AuthLayout>;
+  return (
+    <AuthLayout
+      title="Welcome back!"
+      description="Log in to continue tracking your mood and sleep."
+    >
+      {children}
+    </AuthLayout>
+  );
 }

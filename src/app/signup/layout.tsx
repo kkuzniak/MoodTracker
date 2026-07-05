@@ -8,5 +8,12 @@ export const metadata: Metadata = {
 };
 
 export default function SignupLayout({ children }: PropsWithChildren) {
-  return <AuthLayout>{children}</AuthLayout>;
+  return (
+    <AuthLayout
+      title="Create an account"
+      description="Join to track your daily mood and sleep with ease."
+    >
+      {children}
+    </AuthLayout>
+  );
 }
