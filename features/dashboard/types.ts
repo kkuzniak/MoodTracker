@@ -25,3 +25,10 @@ export type ReflectionTag =
   | 'restless';
 
 export type Trend = 'increase' | 'decrease' | 'same';
+
+export type Nullable<T> = T | null;
+
+export type Average<T> = {
+  value: T | null;
+  trend: Trend | null;
+};

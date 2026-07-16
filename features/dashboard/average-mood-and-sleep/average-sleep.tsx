@@ -1,14 +1,17 @@
 import { ZzzIcon } from '@/shared/components/icons/zzz-icon';
-import type { SleepAmount, Trend } from '../types';
+import { cn } from '@/utils/cn';
+import type { Nullable, SleepAmount, Trend } from '../types';
 import { PatternWrapper } from './pattern-wrapper';
 import { TrendIndicator } from './trend-indicator';
 
 type Props = {
-  amount: SleepAmount;
-  trend: Trend;
+  amount: Nullable<SleepAmount>;
+  trend: Nullable<Trend>;
 };
 
 const AverageSleep = ({ amount, trend }: Props) => {
+  const title = amount ? `${amount} Hours` : 'Not enough data yet!';
+
   return (
     <div>
       <header className="mb-3">
@@ -19,12 +22,20 @@ const AverageSleep = ({ amount, trend }: Props) => {
           </span>
         </p>
       </header>
-      <PatternWrapper className=" bg-blue-600 text-neutral-0">
+      <PatternWrapper
+        className={cn({
+          'bg-blue-600 text-neutral-0': amount,
+          'bg-blue-100 text-neutral-900': !amount,
+        })}
+      >
         <header className="flex flex-row items-center gap-x-4 mb-3">
-          <ZzzIcon className="opacity-70 size-5.5" />
-          <p className="text-preset-4">{amount} Hours</p>
+          {amount ? <ZzzIcon className="opacity-70 size-5.5" /> : null}
+          <p className="text-preset-4">{title}</p>
         </header>
-        <TrendIndicator trend={trend} />
+        <TrendIndicator
+          trend={trend}
+          emptyText="Track 5 nights to view average sleep."
+        />
       </PatternWrapper>
     </div>
   );

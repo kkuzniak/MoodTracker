@@ -29,7 +29,7 @@ const Input = ({ id, label, placeholder, type = 'text', className }: Props) => {
       <input
         id={id}
         className={cn(
-          'w-full h-12.25 bg-neutral-0 rounded-[10px] px-4 border border-neutral-300 text-preset-6-regular text-neutral-600',
+          'w-full h-12.25 bg-neutral-0 rounded-[10px] px-4 border border-neutral-300 text-preset-6-regular text-neutral-600 cursor-pointer',
           'focus-visible:outline-none focus-visible:border-2 focus-visible:border-blue-600',
         )}
         value={value}

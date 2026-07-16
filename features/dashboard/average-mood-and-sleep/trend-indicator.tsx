@@ -1,6 +1,9 @@
 import { cn } from '@/utils/cn';
 import type { Trend } from '../types';
-import { type Props, TrendIcon } from './trend-indicator/trend-icon';
+import {
+  TrendIcon,
+  type Props as TrendIconProps,
+} from './trend-indicator/trend-icon';
 
 const TEXT_BY_TREND: Record<Trend, string> = {
   increase: 'Increase from the previous 5 check-ins',
@@ -14,16 +17,22 @@ const MAX_WIDTH_BY_TREND: Record<Trend, string> = {
   same: 'max-w-auto',
 };
 
-const TrendIndicator = ({ trend }: Props) => {
+type Props = TrendIconProps & {
+  emptyText: string;
+};
+
+const TrendIndicator = ({ trend, emptyText }: Props) => {
+  const text = trend ? TEXT_BY_TREND[trend] : emptyText;
+
   return (
     <p
       className={cn(
         'opacity-70 text-preset-7 flex flex-row gap-x-2',
-        MAX_WIDTH_BY_TREND[trend],
+        trend ? MAX_WIDTH_BY_TREND[trend] : '',
       )}
     >
       <TrendIcon trend={trend} />
-      <span>{TEXT_BY_TREND[trend]}</span>
+      <span>{text}</span>
     </p>
   );
 };

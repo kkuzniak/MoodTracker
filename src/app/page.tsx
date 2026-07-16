@@ -20,19 +20,36 @@ type TodaysData = {
   reflectionTags: ReflectionTag[];
 };
 
-const DATA = {
+type Data = {
+  name: string;
+  today: TodaysData | null;
+  averageMood: {
+    value: Mood | null;
+    trend: Trend | null;
+  };
+  averageSleepAmount: {
+    value: SleepAmountType | null;
+    trend: Trend | null;
+  };
+};
+
+const DATA: Data = {
   name: 'Kacper',
   today: {
-    mood: 'very-happy' as Mood,
-    sleepAmount: '2-3' as SleepAmountType,
+    mood: 'very-happy',
+    sleepAmount: '9+',
     reflection: 'Woke up early and finally tackled a big project!',
-    reflectionTags: ['grateful', 'optimistic'] as ReflectionTag[],
+    reflectionTags: ['grateful', 'optimistic'],
   },
-  // today: null as TodaysData | null,
-  averageMood: 'very-sad' as Mood,
-  averageMoodTrend: 'decrease' as Trend,
-  averageSleepAmount: '3-4' as SleepAmountType,
-  averageSleepTrend: 'decrease' as Trend,
+  // today: null,
+  averageMood: {
+    value: 'neutral',
+    trend: 'same',
+  },
+  averageSleepAmount: {
+    value: '5-6',
+    trend: 'increase',
+  },
 } as const;
 
 export default function Home() {
@@ -70,9 +87,7 @@ export default function Home() {
           <div className="w-full flex flex-col gap-8 mb-10 lg:flex-row lg:justify-between">
             <AverageMoodAndSleep
               mood={DATA.averageMood}
-              moodTrend={DATA.averageMoodTrend}
               sleepAmount={DATA.averageSleepAmount}
-              sleepTrend={DATA.averageSleepTrend}
             />
             <MoodAndSleepTrends />
           </div>

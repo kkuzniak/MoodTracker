@@ -1,13 +1,17 @@
 import { ArrowRightDownIcon } from '@/shared/components/icons/arrow-right-down-icon';
 import { ArrowRightIcon } from '@/shared/components/icons/arrow-right-icon';
 import { ArrowRightUpIcon } from '@/shared/components/icons/arrow-right-up-icon';
-import { Trend } from '../../types';
+import { Nullable, Trend } from '../../types';
 
 type Props = {
-  trend: Trend;
+  trend: Nullable<Trend>;
 };
 
 const TrendIcon = ({ trend }: Props) => {
+  if (!trend) {
+    return null;
+  }
+
   if (trend === 'increase') {
     return <ArrowRightUpIcon />;
   }

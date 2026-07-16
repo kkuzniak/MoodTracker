@@ -29,3 +29,11 @@ export const TITLE_BY_MOOD: Record<Mood, string> = {
   sad: 'Sad',
   'very-sad': 'Very Sad',
 };
+
+export const SLEEP_LABEL: Record<number, string> = {
+  1: '0-2 hours',
+  2: '3-4 hours',
+  3: '5-6 hours',
+  4: '7-8 hours',
+  5: '9+ hours',
+};
